@@ -5,15 +5,10 @@
 		<link rel="stylesheet" href="style.css" />
         <title>Project Week</title>
 		<script type="text/javascript">
-			if (navigator.geolocation)
-			{
-				navigator.geolocation.getCurrentPosition(function(position)
-				{	
-					alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
-				});
-			}
-			else
-				alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+			var watchId = navigator.geolocation.watchPosition(
+				function(position){
+				alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+				}, null, {enableHighAccuracy:true});
 		</script>
 	</head>
 	<body>
